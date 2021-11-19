@@ -5,6 +5,7 @@
 #include "Sub.hpp"
 #include "Pow.hpp"
 #include "Div.hpp"
+#include <iostream>
 
 using namespace std;
 
@@ -16,12 +17,13 @@ class Factory{
 			for(int i = 0; i < length; i++){
 				if(input[i] == "+"){
 					if(i+1 > length){
+						cout << "Invalid Input" << endl;
 						return nullptr;
 						break;
 					}
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* add = new Add(op, op2);
-					op = new Op(add->evaluate());
+					op = add;
 				} else if(input[i] == "-"){
 					if(i+1 > length){
 						return nullptr;
@@ -29,7 +31,7 @@ class Factory{
 					}
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* sub = new Sub(op, op2);
-					op = new Op(sub->evaluate());
+					op = sub;
 				} else if(input[i] == "\*"){
 					if(i+1 > length){
 						return nullptr;
@@ -37,7 +39,7 @@ class Factory{
 					}
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* mult = new Mult(op, op2);
-					op = new Op(mult->evaluate());
+					op = mult;
 				} else if(input[i] == "\*\*"){
 					if(i+1 > length){
 						return nullptr;
@@ -45,7 +47,7 @@ class Factory{
 					}
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* pow = new Pow(op, op2);
-					op = new Op(pow->evaluate());
+					op = pow;
 				} else if(input[i] == "/"){
 					if(i+1 > length){
 						return nullptr;
@@ -53,7 +55,7 @@ class Factory{
 					}
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* div = new Div(op, op2);
-					op = new Op(div->evaluate());
+					op = div;
 				} else{
 					op = new Op(stod(input[i]));
 				}
