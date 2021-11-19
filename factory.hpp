@@ -13,9 +13,12 @@ using namespace std;
 class Factory{
 	public: 
 	Base* parse(char** input, int length){
-		Base* op = new Op();
+		Base* op;
 			for(int i = 0; i < length; i++){
-				if(input[i] == "+"){
+				cout << "Indices: " << i << endl; 
+				cout <<  input[i] << endl;
+				string strc = input[i];
+				if(strc == "+"){
 					if(i+1 > length){
 						cout << "Invalid Input" << endl;
 						return nullptr;
@@ -25,7 +28,7 @@ class Factory{
 					Base* add = new Add(op, op2);
 					op = add;
 					++i;
-				} else if(input[i] == "-"){
+				} else if(strc == "-"){
 					if(i+1 > length){
 						return nullptr;
 						break;
@@ -34,19 +37,19 @@ class Factory{
 					Base* sub = new Sub(op, op2);
 					op = sub;
 					++i;
-				} else if(input[i] == "*"){
+				} else if(strc == "*"){
 					if(i+1 > length){
 						return nullptr;
 						break;
 					}
-					cout << op->evaluate() << endl;
+					cout << "OP in Mult: " + op->stringify() << endl;
 					Base* op2 = new Op(stod(input[i+1]));
-					cout << op2->evaluate() << endl;
+					cout << "OP2: " + op2->stringify() << endl;
 					Base* mult = new Mult(op, op2);
-					cout << mult->evaluate() << endl;
+					cout << "Mult: " + mult->stringify() << endl;
 					op = mult;
 					++i;
-				} else if(input[i] == "**"){
+				} else if(strc == "**"){
 					if(i+1 > length){
 						return nullptr;
 						break;
@@ -55,7 +58,7 @@ class Factory{
 					Base* pow = new Pow(op, op2);
 					op = pow;
 					++i;
-				} else if(input[i] == "/"){
+				} else if(strc == "/"){
 					if(i+1 > length){
 						return nullptr;
 						break;
@@ -66,6 +69,8 @@ class Factory{
 					++i;
 				}else {
 					op = new Op(strtod(input[i], input));
+					cout << op->evaluate() << endl;
+					cout << "OP: " + op->stringify() << endl;
 				}
 			}
 		return op;	
