@@ -12,7 +12,7 @@ using namespace std;
 class Factory{
 	public: 
 	Base* parse(char** input, int length){
-		Base* op;
+		Base* op = new Op();
 			for(int i = 0; i < length; i++){
 				if(input[i] == "+"){
 					if(i+1 > length){
