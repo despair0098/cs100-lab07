@@ -8,6 +8,8 @@
 #include "Pow.hpp"
 #include "MockClasses.hpp"
 
+using namespace std;
+
 TEST(Mult1, OpNegativeAndPositive) {
     Base* test1 = new NegativeOp();
     Base* test2 = new PositiveOp();

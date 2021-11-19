@@ -11,7 +11,8 @@ ADD_EXECUTABLE(test
     Div.hpp
     Pow.hpp
     factory.hpp
-    main.cpp
+    test.cpp
+    MockClasses.hpp
 )
 
 ADD_EXECUTABLE(calculator
