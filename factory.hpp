@@ -10,7 +10,7 @@ using namespace std;
 
 
 class Factory{
-	
+	public: 
 	Base* parse(char** input, int length){
 		Base* op;
 			for(int i = 0; i < length; i++){
@@ -54,7 +54,7 @@ class Factory{
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* div = new Div(op, op2);
 					op = new Op(div->evaluate());
-				} else {
+				} else{
 					op = new Op(stod(input[i]));
 				}
 			}
