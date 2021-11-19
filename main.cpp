@@ -4,7 +4,7 @@
 #include "op.hpp"
 #include "factory.hpp"
 
-int main(char** argv, int argc) {
+int main(int argc, char** argv) {
    Factory* factory = new Factory();
    Base* op = factory->parse(argv, argc);
    if(op == nullptr){

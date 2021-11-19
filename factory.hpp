@@ -24,6 +24,7 @@ class Factory{
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* add = new Add(op, op2);
 					op = add;
+					++i;
 				} else if(input[i] == "-"){
 					if(i+1 > length){
 						return nullptr;
@@ -32,7 +33,8 @@ class Factory{
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* sub = new Sub(op, op2);
 					op = sub;
-				} else if(input[i] == "\*"){
+					++i;
+				} else if(input[i] == "*"){
 					if(i+1 > length){
 						return nullptr;
 						break;
@@ -40,7 +42,8 @@ class Factory{
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* mult = new Mult(op, op2);
 					op = mult;
-				} else if(input[i] == "\*\*"){
+					++i;
+				} else if(input[i] == "**"){
 					if(i+1 > length){
 						return nullptr;
 						break;
@@ -48,6 +51,7 @@ class Factory{
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* pow = new Pow(op, op2);
 					op = pow;
+					++i;
 				} else if(input[i] == "/"){
 					if(i+1 > length){
 						return nullptr;
@@ -56,8 +60,9 @@ class Factory{
 					Base* op2 = new Op(stod(input[i+1]));
 					Base* div = new Div(op, op2);
 					op = div;
-				} else{
-					op = new Op(stod(input[i]));
+					++i;
+				}else {
+					op = new Op(strtod(input[i], input));
 				}
 			}
 		return op;	
