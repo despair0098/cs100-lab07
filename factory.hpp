@@ -39,8 +39,11 @@ class Factory{
 						return nullptr;
 						break;
 					}
+					cout << op->evaluate() << endl;
 					Base* op2 = new Op(stod(input[i+1]));
+					cout << op2->evaluate() << endl;
 					Base* mult = new Mult(op, op2);
+					cout << mult->evaluate() << endl;
 					op = mult;
 					++i;
 				} else if(input[i] == "**"){
