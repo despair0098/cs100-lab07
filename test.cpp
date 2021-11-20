@@ -12,7 +12,7 @@
 using namespace std;
 
 TEST(Factory, Add) {
-    char* test_val[2]; test_val[0] = "3"; test_val[1] = "+"; test_val[2] = "2";
+    char* test_val[2]; test_val[0] = (char*)"3"; test_val[1] = (char*)"+"; test_val[2] = (char*)"2";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 2);
     string result1 = test->stringify();
