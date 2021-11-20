@@ -23,60 +23,48 @@ TEST(Factory, AddAndSub) {
     char* test_val[5]; test_val[0] = (char*)"3"; test_val[1] = (char*)"+" ; test_val[2] = (char*)"2"; test_val[3] = (char*)"-"; test_val[4] = (char*)"5";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 5);
-    string result1 = test->stringify();
-    double result2 = test->evaluate();
-    EXPECT_EQ("(((3.000000)+(2.000000))-(5.000000))", result1);
-    EXPECT_EQ(0.000000, result2);
+    EXPECT_EQ("(((3.000000)+(2.000000))-(5.000000))", test->stringify());
+    EXPECT_EQ(0.000000, test->evaluate());
 }
 
 TEST(Factory, Multiplication) {
     char* test_val[2]; test_val[0] = (char*)"10"; test_val[1] = (char*)"*"; test_val[2] = (char*)"2";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 2);
-    string result1 = test->stringify();
-    double result2 = test->evaluate();
-    EXPECT_EQ("((10.000000)*(2.000000))", result1);
-    EXPECT_EQ(20.000000, result2);
+    EXPECT_EQ("((10.000000)*(2.000000))", test->stringify());
+    EXPECT_EQ(20.000000, test->evaluate());
 }
 
 TEST(Factory, Division) {
     char* test_val[2]; test_val[0] = (char*)"10"; test_val[1] = (char*)"/"; test_val[2] = (char*)"2";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 2);
-    string result1 = test->stringify();
-    double result2 = test->evaluate();
-    EXPECT_EQ("((10.000000)/(2.000000))", result1);
-    EXPECT_EQ(5.000000, result2);
+    EXPECT_EQ("((10.000000)/(2.000000))", test->stringify());
+    EXPECT_EQ(5.000000, test->evaluate());
 }
 
 TEST(Factory, Power) {
     char* test_val[2]; test_val[0] = (char*)"0"; test_val[1] = (char*) "**"; test_val[2] = (char*)"2";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 2);
-    string result1 = test->stringify();
-    double result2 = test->evaluate();
-    EXPECT_EQ("((0.000000)**(2.000000))", result1);
-    EXPECT_EQ(0.000000, result2);
+    EXPECT_EQ("((0.000000)**(2.000000))", test->stringify());
+    EXPECT_EQ(0.000000, test->evaluate());
 }
 
 TEST(Factory, Invalid) {
     char* test_val[2]; test_val[0] = (char*)"Hello"; test_val[1] = (char*)"World"; test_val[2] = (char*)"Something";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 2);
-    string result1 = test->stringify();
-    double result2 = test->evaluate();
-    EXPECT_EQ("(0.000000)", result1);
-    EXPECT_EQ(0.000000, result2);
+    EXPECT_EQ("(0.000000)", test->stringify());
+    EXPECT_EQ(0.000000, test->evaluate());
 }
 
 TEST(Factory, CombinedFunctions) {
     char* test_val[8]; test_val[0] = (char*)"3"; test_val[1] = (char*)"+" ; test_val[2] = (char*)"2"; test_val[3] = (char*)"-"; test_val[4] = (char*)"5"; test_val[5] = (char*)"+"; test_val[6] = (char*)"3.5"; test_val[7] = (char*)"*"; test_val[8] = (char*)"2";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 8);
-    string result1 = test->stringify();
-    double result2 = test->evaluate();
-    EXPECT_EQ("(((((3.000000)+(2.000000))-(5.000000))+(3.500000))*(2.000000))", result1);
-    EXPECT_EQ(7.000000, result2);
+    EXPECT_EQ("(((((3.000000)+(2.000000))-(5.000000))+(3.500000))*(2.000000))", test->stringify());
+    EXPECT_EQ(7.000000, test->evaluate());
 }
 
 TEST(Mult1, OpNegativeAndPositive) {
