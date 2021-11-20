@@ -27,6 +27,7 @@ class Factory{
 					++i;
 				} else if(strc == "-"){
 					if(i+1 > length){
+						cout << "Invalid Input" << endl;
 						return nullptr;
 					}
 					Base* op2 = new Op(stod(input[i+1]));
@@ -35,6 +36,7 @@ class Factory{
 					++i;
 				} else if(strc == "*"){
 					if(i+1 > length){
+						cout << "Invalid Input" << endl;
 						return nullptr;
 					}
 					Base* op2 = new Op(stod(input[i+1]));
@@ -43,6 +45,7 @@ class Factory{
 					++i;
 				} else if(strc == "**"){
 					if(i+1 > length){
+						cout << "Invalid Input" << endl;
 						return nullptr;
 					}
 					Base* op2 = new Op(stod(input[i+1]));
@@ -51,6 +54,7 @@ class Factory{
 					++i;
 				} else if(strc == "/"){
 					if(i+1 > length){
+						cout << "Invalid Input" << endl;
 						return nullptr;
 					}
 					Base* op2 = new Op(stod(input[i+1]));
@@ -59,7 +63,6 @@ class Factory{
 					++i;
 				}else {
 					op = new Op(strtod(input[i], input));
-					cout << op->evaluate() << endl;
 				}
 			}
 		return op;	
