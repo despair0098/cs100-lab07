@@ -17,7 +17,7 @@ class Factory{
 			for(int i = 0; i < length; i++){
 				string strc = input[i];
 				if(strc == "+"){
-					if(i+1 > length){
+					if(i+1 > length-1){
 						cout << "Invalid Input" << endl;
 						return nullptr;
 					}
@@ -26,7 +26,7 @@ class Factory{
 					op = add;
 					++i;
 				} else if(strc == "-"){
-					if(i+1 > length){
+					if(i+1 > length-1){
 						cout << "Invalid Input" << endl;
 						return nullptr;
 					}
@@ -35,7 +35,7 @@ class Factory{
 					op = sub;
 					++i;
 				} else if(strc == "*"){
-					if(i+1 > length){
+					if(i+1 > length-1){
 						cout << "Invalid Input" << endl;
 						return nullptr;
 					}
@@ -44,7 +44,7 @@ class Factory{
 					op = mult;
 					++i;
 				} else if(strc == "**"){
-					if(i+1 > length){
+					if(i+1 > length-1){
 						cout << "Invalid Input" << endl;
 						return nullptr;
 					}
@@ -53,7 +53,7 @@ class Factory{
 					op = pow;
 					++i;
 				} else if(strc == "/"){
-					if(i+1 > length){
+					if(i+1 > length-1){
 						cout << "Invalid Input" << endl;
 						return nullptr;
 					}
