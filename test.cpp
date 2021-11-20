@@ -7,8 +7,19 @@
 #include "Div.hpp"
 #include "Pow.hpp"
 #include "MockClasses.hpp"
+#include "factory.hpp"
 
 using namespace std;
+
+TEST(Factory, Add) {
+    char* test_val[2]; test_val[0] = "3"; test_val[1] = "+"; test_val[2] = "2";
+    Factory* f = new Factory();
+    Base* test = f->parse(test_val, 2);
+    string result1 = test->stringify();
+    double result2 = test->evaluate();
+    EXPECT_EQ("((3.000000)+(2.000000))", result1);
+    EXPECT_EQ(5.000000, result2);
+}
 
 TEST(Mult1, OpNegativeAndPositive) {
     Base* test1 = new NegativeOp();
