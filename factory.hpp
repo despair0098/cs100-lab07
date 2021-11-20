@@ -15,8 +15,6 @@ class Factory{
 	Base* parse(char** input, int length){
 		Base* op;
 			for(int i = 0; i < length; i++){
-				cout << "Indices: " << i << endl; 
-				cout <<  input[i] << endl;
 				string strc = input[i];
 				if(strc == "+"){
 					if(i+1 > length){
@@ -39,11 +37,8 @@ class Factory{
 					if(i+1 > length){
 						return nullptr;
 					}
-					cout << "OP in Mult: " + op->stringify() << endl;
 					Base* op2 = new Op(stod(input[i+1]));
-					cout << "OP2: " + op2->stringify() << endl;
 					Base* mult = new Mult(op, op2);
-					cout << "Mult: " + mult->stringify() << endl;
 					op = mult;
 					++i;
 				} else if(strc == "**"){
@@ -65,7 +60,6 @@ class Factory{
 				}else {
 					op = new Op(strtod(input[i], input));
 					cout << op->evaluate() << endl;
-					cout << "OP: " + op->stringify() << endl;
 				}
 			}
 		return op;	
