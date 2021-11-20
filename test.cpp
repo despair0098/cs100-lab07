@@ -30,7 +30,7 @@ TEST(Factory, AddAndSub) {
 }
 
 TEST(Factory, Multiplication) {
-    char* test_val[2]; test_val[0] = (char*)"10"; test_val[1] = (char*)"\*"; test_val[2] = (char*)"2";
+    char* test_val[2]; test_val[0] = (char*)"10"; test_val[1] = (char*)"*"; test_val[2] = (char*)"2";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 2);
     string result1 = test->stringify();
@@ -50,7 +50,7 @@ TEST(Factory, Division) {
 }
 
 TEST(Factory, Power) {
-    char* test_val[2]; test_val[0] = (char*)"0"; test_val[1] = (char*) "\**"; test_val[2] = (char*)"2";
+    char* test_val[2]; test_val[0] = (char*)"0"; test_val[1] = (char*) "**"; test_val[2] = (char*)"2";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 2);
     string result1 = test->stringify();
@@ -70,7 +70,7 @@ TEST(Factory, Invalid) {
 }
 
 TEST(Factory, CombinedFunctions) {
-    char* test_val[8]; test_val[0] = (char*)"3"; test_val[1] = (char*)"+" ; test_val[2] = (char*)"2"; test_val[3] = (char*)"-"; test_val[4] = (char*)"5"; test_val[5] = (char*)"+"; test_val[6] = (char*)"3.5"; test_val[7] = (char*)"\*"; test_val[8] = (char*)"2";
+    char* test_val[8]; test_val[0] = (char*)"3"; test_val[1] = (char*)"+" ; test_val[2] = (char*)"2"; test_val[3] = (char*)"-"; test_val[4] = (char*)"5"; test_val[5] = (char*)"+"; test_val[6] = (char*)"3.5"; test_val[7] = (char*)"*"; test_val[8] = (char*)"2";
     Factory* f = new Factory();
     Base* test = f->parse(test_val, 8);
     string result1 = test->stringify();
