@@ -16,7 +16,6 @@ class Factory{
 		Base* op;
 			for(int i = 0; i < length; i++){
 				cout << "Indices: " << i << endl; 
-				cout <<  input[i] << endl;
 				string strc = input[i];
 				if(strc == "+"){
 					if(i+1 > length){
