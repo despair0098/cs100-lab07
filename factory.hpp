@@ -15,7 +15,6 @@ class Factory{
 	Base* parse(char** input, int length){
 		Base* op;
 			for(int i = 0; i < length; i++){
-				cout << "Indices: " << i << endl; 
 				string strc = input[i];
 				if(strc == "+"){
 					if(i+1 > length){
